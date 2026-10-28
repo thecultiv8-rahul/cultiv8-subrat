@@ -4,11 +4,10 @@ import { Icon, WhatsAppIcon } from "./Icons.jsx";
 
 /** Desktop: floating WhatsApp button. Mobile: sticky Call / WhatsApp / Offer bar. */
 export default function FloatingContact() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 500);
-    onScroll();
+    const onScroll = () => setVisible(true);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
