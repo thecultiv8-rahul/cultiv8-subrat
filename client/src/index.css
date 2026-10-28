@@ -2402,6 +2402,149 @@ p {
   50%       { filter: drop-shadow(0 0 18px rgba(204,102,51,0.85)) drop-shadow(0 0 36px rgba(204,102,51,0.4)); }
 }
 
+/* ---------- Enquiry Popup ---------- */
+.epop__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+  animation: epop-fade 0.3s ease;
+}
+@keyframes epop-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.epop {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  animation: epop-up 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes epop-up {
+  from { transform: translateY(40px) scale(0.96); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+.epop__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(0,0,0,0.35);
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+.epop__close:hover { background: rgba(0,0,0,0.6); }
+.epop__photo {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+}
+.epop__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.epop__photo-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  background: #CC2200;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.epop__form {
+  padding: 20px 20px 24px;
+}
+.epop__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 4px;
+}
+.epop__sub {
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 16px;
+}
+.epop__field {
+  margin-bottom: 12px;
+}
+.epop__input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+.epop__input:focus { border-color: #CC6633; background: #fff; }
+.epop__input.is-error { border-color: #e53e3e; }
+.epop__select { appearance: none; cursor: pointer; }
+.epop__err {
+  display: block;
+  font-size: 11px;
+  color: #e53e3e;
+  margin-top: 4px;
+}
+.epop__submit {
+  width: 100%;
+  padding: 13px;
+  background: #CC6633;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+.epop__submit:hover { background: #b85a2c; }
+.epop__submit:disabled { opacity: 0.7; cursor: not-allowed; }
+.epop__success {
+  padding: 32px 24px;
+  text-align: center;
+}
+.epop__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: #22c55e;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+.epop__success h3 { font-size: 1.1rem; margin: 0 0 8px; color: #111; }
+.epop__success p  { font-size: 13px; color: #666; margin: 0 0 20px; }
+
 /* ---------- Floating contact ---------- */
 .wa-float {
   position: fixed;

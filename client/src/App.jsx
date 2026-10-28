@@ -11,6 +11,7 @@ import Faq from "./components/Faq.jsx";
 import Footer from "./components/Footer.jsx";
 import FooterBottom from "./components/FooterBottom.jsx";
 import FloatingContact from "./components/FloatingContact.jsx";
+import EnquiryPopup from "./components/EnquiryPopup.jsx";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
       <Footer />
       <FooterBottom />
       <FloatingContact />
+      <EnquiryPopup />
     </>
   );
 }
