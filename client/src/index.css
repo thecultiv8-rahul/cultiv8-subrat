@@ -563,6 +563,7 @@ p {
   }
   .hero2__logo {
     margin-bottom: 20px;
+    margin-top: -40px;
   }
   .hero2__logo img {
     height: 52px;
