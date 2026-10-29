@@ -570,7 +570,7 @@ p {
   .hero2__logo-top {
     display: block;
     position: absolute;
-    top: 16px;
+    top: 32px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
