@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import frame1 from "../photos/Frame 1984081567.png";
 import frame2 from "../photos/Frame 1984081568.png";
 import frame3 from "../photos/Frame 1984081569.png";
@@ -24,59 +24,60 @@ const LOGOS = [
 
 export default function ClientLogos() {
   const trackRef = useRef(null);
+  const drag = useRef({ active: false, startX: 0, baseOffset: 0 });
+  const offsetRef = useRef(0);
   const raf = useRef(null);
-  const state = useRef({ dragging: false, startX: 0, offset: 0, baseOffset: 0, vel: 0, lastX: 0 });
-  const [, forceUpdate] = useState(0);
+  const halfRef = useRef(0);
 
   useEffect(() => {
-    let offset = 0;
+    // Wait for images to load then get half width
+    const el = trackRef.current;
+    function measure() {
+      halfRef.current = el.scrollWidth / 2;
+    }
+    measure();
+    window.addEventListener("load", measure);
 
     function tick() {
-      const s = state.current;
-      if (!s.dragging) {
-        offset -= 0.8;
-        const half = trackRef.current ? trackRef.current.scrollWidth / 2 : 0;
-        if (Math.abs(offset) >= half) offset = 0;
-        s.offset = offset;
-      } else {
-        offset = s.offset;
+      if (!drag.current.active) {
+        offsetRef.current -= 0.8;
+        const half = halfRef.current;
+        if (half > 0 && Math.abs(offsetRef.current) >= half) {
+          offsetRef.current = 0;
+        }
       }
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translateX(${s.offset}px)`;
-      }
+      if (el) el.style.transform = `translateX(${offsetRef.current}px)`;
       raf.current = requestAnimationFrame(tick);
     }
 
     raf.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf.current);
+    return () => {
+      cancelAnimationFrame(raf.current);
+      window.removeEventListener("load", measure);
+    };
   }, []);
 
   function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
 
   function onDown(e) {
-    const s = state.current;
-    s.dragging = true;
-    s.startX = getX(e);
-    s.baseOffset = s.offset;
+    drag.current = { active: true, startX: getX(e), baseOffset: offsetRef.current };
   }
 
   function onMove(e) {
-    const s = state.current;
-    if (!s.dragging) return;
+    if (!drag.current.active) return;
     e.preventDefault();
-    const dx = getX(e) - s.startX;
-    s.offset = s.baseOffset + dx;
+    offsetRef.current = drag.current.baseOffset + (getX(e) - drag.current.startX);
   }
 
   function onUp() {
-    state.current.dragging = false;
+    drag.current.active = false;
   }
 
   useEffect(() => {
-    const el = trackRef.current?.parentElement;
-    if (!el) return;
-    el.addEventListener("touchmove", onMove, { passive: false });
-    return () => el.removeEventListener("touchmove", onMove);
+    const wrap = trackRef.current?.parentElement;
+    if (!wrap) return;
+    wrap.addEventListener("touchmove", onMove, { passive: false });
+    return () => wrap.removeEventListener("touchmove", onMove);
   }, []);
 
   const track = [...LOGOS, ...LOGOS];
@@ -100,7 +101,13 @@ export default function ClientLogos() {
         <div className="marquee2__track" ref={trackRef}>
           {track.map((src, i) => (
             <div className="marquee2__item" key={i}>
-              <img src={src} alt={`Client logo ${(i % LOGOS.length) + 1}`} loading="lazy" draggable={false} />
+              <img
+                src={src}
+                alt={`Client logo ${(i % LOGOS.length) + 1}`}
+                loading="lazy"
+                draggable={false}
+                onLoad={() => { if (trackRef.current) halfRef.current = trackRef.current.scrollWidth / 2; }}
+              />
             </div>
           ))}
         </div>
