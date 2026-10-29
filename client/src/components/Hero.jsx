@@ -66,6 +66,10 @@ export default function Hero() {
       />
       <div className="hero2__overlay" aria-hidden />
 
+      <div className="hero2__logo-top">
+        <img src={heroLogo} alt="Cultiv8 — Elevate Your Success" />
+      </div>
+
       <div className="hero2__content">
         <div className="hero2__logo">
           <img src={heroLogo} alt="Cultiv8 — Elevate Your Success" />

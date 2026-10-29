@@ -451,6 +451,9 @@ p {
 .hero2__logo {
   margin-bottom: 80px;
 }
+.hero2__logo-top {
+  display: none;
+}
 .hero2__logo .logo-img {
   height: 64px;
   width: auto;
@@ -562,12 +565,20 @@ p {
     box-sizing: border-box;
   }
   .hero2__logo {
+    display: none;
+  }
+  .hero2__logo-top {
+    display: block;
     position: absolute;
-    top: 12px;
+    top: 16px;
     left: 50%;
     transform: translateX(-50%);
-    margin: 0;
-    z-index: 2;
+    z-index: 10;
+    white-space: nowrap;
+  }
+  .hero2__logo-top img {
+    height: 52px;
+    width: auto;
   }
   .hero2__logo img {
     height: 52px;
