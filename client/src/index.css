@@ -664,10 +664,6 @@ p {
 .marquee2__track {
   display: flex;
   width: max-content;
-  animation: marquee2 28s linear infinite;
-}
-.marquee2__track--paused {
-  animation-play-state: paused;
 }
 .marquee2__item {
   display: flex;

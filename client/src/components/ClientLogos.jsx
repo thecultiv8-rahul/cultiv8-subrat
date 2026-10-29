@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import frame1 from "../photos/Frame 1984081567.png";
 import frame2 from "../photos/Frame 1984081568.png";
 import frame3 from "../photos/Frame 1984081569.png";
@@ -25,12 +25,32 @@ const LOGOS = [
 export default function ClientLogos() {
   const wrapRef = useRef(null);
   const drag = useRef({ active: false, startX: 0, scrollLeft: 0 });
-  const [paused, setPaused] = useState(false);
+  const raf = useRef(null);
+  const paused = useRef(false);
+  const speed = 0.8;
+
+  useEffect(() => {
+    const el = wrapRef.current;
+
+    function autoScroll() {
+      if (!paused.current && el) {
+        el.scrollLeft += speed;
+        // loop — when we reach halfway (one set of logos), reset to start
+        if (el.scrollLeft >= el.scrollWidth / 2) {
+          el.scrollLeft = 0;
+        }
+      }
+      raf.current = requestAnimationFrame(autoScroll);
+    }
+
+    raf.current = requestAnimationFrame(autoScroll);
+    return () => cancelAnimationFrame(raf.current);
+  }, []);
 
   function onDown(e) {
     const x = e.touches ? e.touches[0].clientX : e.clientX;
     drag.current = { active: true, startX: x, scrollLeft: wrapRef.current.scrollLeft };
-    setPaused(true);
+    paused.current = true;
   }
 
   function onMove(e) {
@@ -42,7 +62,7 @@ export default function ClientLogos() {
 
   function onUp() {
     drag.current.active = false;
-    setPaused(false);
+    paused.current = false;
   }
 
   useEffect(() => {
@@ -70,7 +90,7 @@ export default function ClientLogos() {
         onTouchStart={onDown}
         onTouchEnd={onUp}
       >
-        <div className={`marquee2__track${paused ? " marquee2__track--paused" : ""}`}>
+        <div className="marquee2__track">
           {track.map((src, i) => (
             <div className="marquee2__item" key={i}>
               <img src={src} alt={`Client logo ${(i % LOGOS.length) + 1}`} loading="lazy" draggable={false} />
