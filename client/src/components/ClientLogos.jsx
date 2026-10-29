@@ -11,7 +11,7 @@ import frame9 from "../photos/Frame 1984081575.png";
 import frame10 from "../photos/Frame 1984081576.png";
 import frame11 from "../photos/Frame 1984081577.png";
 import frame12 from "../photos/Frame 1984081578.png";
-import frame13 from "../photos/Frame 1984081579.png";
+
 import logoBhupendra from "../photos/Bhupendra Goud Logo.jpg_620x245.png";
 import logoLight from "../photos/Logo_light_620x245.png";
 import logoMarq from "../photos/MARQ_Realtors_620x245.png";
@@ -19,7 +19,7 @@ import logoTlphr from "../photos/TLPHR_Logo.jpg_620x245.png";
 
 const LOGOS = [
   frame1, frame2, frame3, frame4, frame5, frame6, frame7,
-  frame8, frame9, frame10, frame11, frame12, frame13,
+  frame8, frame9, frame10, frame11, frame12,
   logoBhupendra, logoLight, logoMarq, logoTlphr,
 ];
 
