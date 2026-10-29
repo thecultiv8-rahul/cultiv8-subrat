@@ -11,7 +11,6 @@ import frame9 from "../photos/Frame 1984081575.png";
 import frame10 from "../photos/Frame 1984081576.png";
 import frame11 from "../photos/Frame 1984081577.png";
 import frame12 from "../photos/Frame 1984081578.png";
-
 import logoBhupendra from "../photos/Bhupendra Goud Logo.jpg_620x245.png";
 import logoLight from "../photos/Logo_light_620x245.png";
 import logoMarq from "../photos/MARQ_Realtors_620x245.png";
@@ -24,37 +23,35 @@ const LOGOS = [
 ];
 
 export default function ClientLogos() {
-  const track = [...LOGOS, ...LOGOS];
-  const ref = useRef(null);
+  const wrapRef = useRef(null);
   const drag = useRef({ active: false, startX: 0, scrollLeft: 0 });
   const [paused, setPaused] = useState(false);
 
   function onDown(e) {
     const x = e.touches ? e.touches[0].clientX : e.clientX;
-    drag.current = { active: true, startX: x, scrollLeft: ref.current.scrollLeft };
+    drag.current = { active: true, startX: x, scrollLeft: wrapRef.current.scrollLeft };
     setPaused(true);
-    ref.current.style.cursor = "grabbing";
   }
 
   function onMove(e) {
     if (!drag.current.active) return;
     e.preventDefault();
     const x = e.touches ? e.touches[0].clientX : e.clientX;
-    const delta = x - drag.current.startX;
-    ref.current.scrollLeft = drag.current.scrollLeft - delta;
+    wrapRef.current.scrollLeft = drag.current.scrollLeft - (x - drag.current.startX);
   }
 
   function onUp() {
     drag.current.active = false;
     setPaused(false);
-    if (ref.current) ref.current.style.cursor = "grab";
   }
 
   useEffect(() => {
-    const el = ref.current;
+    const el = wrapRef.current;
     el.addEventListener("touchmove", onMove, { passive: false });
     return () => el.removeEventListener("touchmove", onMove);
   }, []);
+
+  const track = [...LOGOS, ...LOGOS];
 
   return (
     <section className="clients2">
@@ -64,9 +61,8 @@ export default function ClientLogos() {
       </div>
 
       <div
-        className="marquee2"
-        ref={ref}
-        style={{ cursor: "grab", overflowX: "scroll", scrollbarWidth: "none" }}
+        className="marquee2-wrap"
+        ref={wrapRef}
         onMouseDown={onDown}
         onMouseMove={onMove}
         onMouseUp={onUp}
@@ -76,7 +72,7 @@ export default function ClientLogos() {
       >
         <div className={`marquee2__track${paused ? " marquee2__track--paused" : ""}`}>
           {track.map((src, i) => (
-            <div className="marquee2__item" key={i} aria-hidden={i >= LOGOS.length}>
+            <div className="marquee2__item" key={i}>
               <img src={src} alt={`Client logo ${(i % LOGOS.length) + 1}`} loading="lazy" draggable={false} />
             </div>
           ))}

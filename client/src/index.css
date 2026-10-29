@@ -650,18 +650,21 @@ p {
   color: #000;
   margin: 0;
 }
-.marquee2 {
+.marquee2-wrap {
   overflow-x: scroll;
   overflow-y: hidden;
   scrollbar-width: none;
+  cursor: grab;
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  user-select: none;
 }
-.marquee2::-webkit-scrollbar { display: none; }
+.marquee2-wrap::-webkit-scrollbar { display: none; }
+.marquee2-wrap:active { cursor: grabbing; }
 .marquee2__track {
   display: flex;
   width: max-content;
-  animation: marquee2 20s linear infinite;
+  animation: marquee2 28s linear infinite;
 }
 .marquee2__track--paused {
   animation-play-state: paused;
