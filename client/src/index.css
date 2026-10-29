@@ -563,7 +563,7 @@ p {
   }
   .hero2__logo {
     position: absolute;
-    top: 24px;
+    top: 12px;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
