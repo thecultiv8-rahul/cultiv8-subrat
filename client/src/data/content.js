@@ -7,7 +7,7 @@ export const SITE = {
     "https://wa.me/919766777246?text=" +
     encodeURIComponent("Hi Cultiv8, I'd like to know more about the Festive Privilege offer at Sterling Towers, Baner."),
   // TODO: replace with the client's real email address.
-  email: "info@cultiv8.co.in",
+  email: "hello@cultiv8.co.in",
   website: "https://cultiv8.co.in",
   websiteLabel: "cultiv8.co.in",
   instagram: "#", // TODO
