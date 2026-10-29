@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { WhatsAppIcon } from "./Icons.jsx";
 import heroBg from "../photos/hero.png";
 import heroLogo from "../photos/1 (2) 3 (2).svg";
+import heroLogoMobile from "../photos/Cultiv8 Logo 2 with Tagline (1) 1 (1).svg";
 
 const TYPED_TEXT = "Co-working Space";
 
@@ -67,7 +68,7 @@ export default function Hero() {
       <div className="hero2__overlay" aria-hidden />
 
       <div className="hero2__logo-top">
-        <img src={heroLogo} alt="Cultiv8 — Elevate Your Success" />
+        <img src={heroLogoMobile} alt="Cultiv8 — Elevate Your Success" />
       </div>
 
       <div className="hero2__content">
