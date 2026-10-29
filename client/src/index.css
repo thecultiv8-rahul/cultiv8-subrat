@@ -670,12 +670,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 16px;
-  height: 52px;
+  padding: 0 20px;
+  height: 64px;
 }
 .marquee2__item img {
-  max-height: 36px;
-  max-width: 140px;
+  max-height: 52px;
+  max-width: 160px;
   width: auto;
   object-fit: contain;
   opacity: 1;
