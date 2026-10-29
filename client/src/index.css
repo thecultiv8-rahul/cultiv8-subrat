@@ -562,8 +562,12 @@ p {
     box-sizing: border-box;
   }
   .hero2__logo {
-    margin-bottom: 20px;
-    margin-top: -80px;
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 2;
   }
   .hero2__logo img {
     height: 52px;
