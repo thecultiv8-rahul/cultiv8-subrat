@@ -8,10 +8,10 @@ import img566 from "../photos/Frame 1984081566.png";
 
 const WORKSPACE_IMGS = {
   "Dedicated Desks":            img566,
-  "Private Cabins":             img563,
+  "Private Cabins":             img564,
   "Managed Offices":            img562,
   "Meeting & Conference Rooms": img565,
-  "Director's Suite":           img564,
+  "Director's Suite":           img563,
   "Virtual Office":             img561,
 };
 
