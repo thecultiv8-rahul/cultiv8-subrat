@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const LEAD_TO_EMAIL = process.env.LEAD_EMAIL || "thecultiv8@gmail.com";
@@ -22,7 +22,7 @@ function validate(body = {}) {
   return { errors, data: { name, mobile, seats, nextStep } };
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -31,9 +31,9 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ ok: false, error: "Method not allowed" });
 
   // Honeypot
-  if (req.body?.company) return res.status(200).json({ ok: true });
+  if (req.body && req.body.company) return res.status(200).json({ ok: true });
 
-  const { errors, data } = validate(req.body);
+  const { errors, data } = validate(req.body || {});
   if (Object.keys(errors).length) {
     return res.status(400).json({ ok: false, errors });
   }
@@ -71,4 +71,4 @@ export default async function handler(req, res) {
   }
 
   return res.status(201).json({ ok: true, id: lead.id });
-}
+};
