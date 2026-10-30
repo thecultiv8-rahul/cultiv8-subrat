@@ -18,9 +18,12 @@ import img96 from "../photos/Frame 1984081596.png";
 import img97 from "../photos/Frame 1984081597.png";
 import img98 from "../photos/Frame 1984081598.png";
 import img99 from "../photos/Frame 1984081599.png";
+import imgNew1 from "../photos/IMG_7324_645x430.jpg";
+import imgNew2 from "../photos/IMG_7368 (1)_645x430.jpg";
+import imgNew3 from "../photos/WhatsApp Image 2026-05-14 at 11.53.56 (2)_645x430.jpg";
 
-const ROW1 = [img80, img81, img82, img83, img84, img85, img86, img87, img88, img89];
-const ROW2 = [img90, img91, img92, img93, img94, img95, img96, img97, img98, img99];
+const ROW1 = [img80, imgNew1, img81, img82, img83, imgNew2, img84, img85, img86, img87, img88, img89];
+const ROW2 = [img90, img91, imgNew3, img92, img93, img94, img95, img96, img97, img98, img99];
 
 function MarqueeRow({ images, reverse = false }) {
   const track = [...images, ...images];
