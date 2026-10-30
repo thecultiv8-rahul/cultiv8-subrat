@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const LEAD_TO_EMAIL = process.env.LEAD_EMAIL || "subrat.quebeta@gmail.com";
+const LEAD_TO_EMAIL = process.env.LEAD_EMAIL || "thecultiv8@gmail.com";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
