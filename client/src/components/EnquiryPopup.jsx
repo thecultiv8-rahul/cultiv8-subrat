@@ -19,15 +19,12 @@ export default function EnquiryPopup() {
   const [status, setStatus] = useState("idle");
 
   useEffect(() => {
-    const already = sessionStorage.getItem("popup_shown");
-    if (already) return;
     const t = setTimeout(() => setOpen(true), 5000);
     return () => clearTimeout(t);
   }, []);
 
   function close() {
     setOpen(false);
-    sessionStorage.setItem("popup_shown", "1");
   }
 
   function set(field, val) {
