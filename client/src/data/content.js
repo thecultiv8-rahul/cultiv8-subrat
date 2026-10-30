@@ -217,24 +217,4 @@ export const FAQS = [
     q: "Can I visit before deciding?",
     a: "Yes. Book a workspace tour and walk the floor, see the cabins and meet the team at a time that suits you. No commitment is required to visit.",
   },
-  {
-    q: "Are seats available right now?",
-    a: "Seats are currently available. Availability changes with demand, so share your team size and we'll confirm what's open for you.",
-  },
-  {
-    q: "Is parking available for members?",
-    a: "Yes, parking is available for members at Sterling Towers. Availability and allocation depend on your workspace plan — our team will confirm the details when you enquire.",
-  },
-  {
-    q: "Can I book a meeting room only?",
-    a: "Yes — meeting and conference rooms can be booked by the hour or day, with no membership required. Call or WhatsApp us to check availability and rates.",
-  },
-  {
-    q: "How is the internet connectivity?",
-    a: "Cultiv8 provides high-speed fibre internet across every desk at Sterling Towers. The network is shared across the floor and maintained to ensure consistent speeds throughout the workday.",
-  },
-  {
-    q: "Where can I find the full terms?",
-    a: "The full offer terms are shared by the Cultiv8 team along with your offer details. Submit the enquiry form or contact us on +91 97667 77246.",
-  },
 ];
