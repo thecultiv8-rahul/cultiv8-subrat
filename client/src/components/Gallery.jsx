@@ -21,6 +21,7 @@ import img99 from "../photos/Frame 1984081599.png";
 import imgNew1 from "../photos/IMG_7324_645x430.jpg";
 import imgNew2 from "../photos/IMG_7368 (1)_645x430.jpg";
 import imgNew3 from "../photos/WhatsApp Image 2026-05-14 at 11.53.56 (2)_645x430.jpg";
+import workspaceVideo from "../photos/Cultive8 Workspace Video.mp4";
 
 const ROW1 = [img80, imgNew1, img81, img82, img83, imgNew2, img84, img85, img86, img87, img88, img89];
 const ROW2 = [img90, img91, imgNew3, img92, img93, img94, img95, img96, img97, img98, img99];
@@ -51,6 +52,17 @@ export default function Gallery() {
 
       <MarqueeRow images={ROW1} reverse={false} />
       <MarqueeRow images={ROW2} reverse={true} />
+
+      <div className="gal-video-wrap">
+        <video
+          src={workspaceVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="gal-video"
+        />
+      </div>
     </section>
   );
 }

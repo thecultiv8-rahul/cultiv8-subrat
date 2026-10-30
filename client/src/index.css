@@ -956,6 +956,19 @@ p {
   object-fit: cover;
   display: block;
 }
+.gal-video-wrap {
+  margin: 40px auto 0;
+  max-width: 900px;
+  padding: 0 20px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.gal-video {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
 @keyframes galLeft {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
