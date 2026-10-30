@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build --prefix client",
+  "outputDirectory": "client/dist",
+  "rewrites": [
+    { "source": "/api/enquiry", "destination": "/api/enquiry" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
