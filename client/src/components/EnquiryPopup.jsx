@@ -41,7 +41,7 @@ export default function EnquiryPopup() {
       await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, source: "popup" }),
+        body: JSON.stringify({ ...form, nextStep: "offer", consent: true, source: "popup" }),
       });
       setStatus("sent");
     } catch {
