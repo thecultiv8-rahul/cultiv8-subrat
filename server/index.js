@@ -1,8 +1,13 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+const LEAD_TO_EMAIL = process.env.LEAD_EMAIL || "subrat.quebeta@gmail.com";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -38,15 +43,37 @@ function validate(body = {}) {
   return { errors, data: { name, mobile, seats, nextStep } };
 }
 
-function handleLead(lead) {
+async function handleLead(lead) {
   enquiries.push(lead);
   console.log("[enquiry]", JSON.stringify(lead));
-  // TODO: send to email / CRM here.
+
+  try {
+    await resend.emails.send({
+      from: "Cultiv8 Leads <onboarding@resend.dev>",
+      to: LEAD_TO_EMAIL,
+      subject: `New Enquiry from ${lead.name}`,
+      html: `
+        <h2>New Cultiv8 Lead</h2>
+        <table cellpadding="8" style="border-collapse:collapse;font-family:sans-serif">
+          <tr><td><strong>Name</strong></td><td>${lead.name}</td></tr>
+          <tr><td><strong>Mobile</strong></td><td>${lead.mobile}</td></tr>
+          <tr><td><strong>Seats</strong></td><td>${lead.seats}</td></tr>
+          <tr><td><strong>Next Step</strong></td><td>${lead.nextStep}</td></tr>
+          <tr><td><strong>Source</strong></td><td>${lead.source}</td></tr>
+          <tr><td><strong>Time</strong></td><td>${lead.createdAt}</td></tr>
+          <tr><td><strong>ID</strong></td><td>${lead.id}</td></tr>
+        </table>
+      `,
+    });
+    console.log("[resend] email sent for lead", lead.id);
+  } catch (err) {
+    console.error("[resend] failed to send email:", err.message);
+  }
 }
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
-app.post("/api/enquiry", (req, res) => {
+app.post("/api/enquiry", async (req, res) => {
   // Simple honeypot: bots fill hidden fields.
   if (req.body?.company) return res.json({ ok: true });
 
@@ -61,7 +88,7 @@ app.post("/api/enquiry", (req, res) => {
     source: "festive-privilege-landing",
     createdAt: new Date().toISOString(),
   };
-  handleLead(lead);
+  await handleLead(lead);
   res.status(201).json({ ok: true, id: lead.id });
 });
 
