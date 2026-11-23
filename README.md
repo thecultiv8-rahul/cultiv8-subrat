@@ -77,3 +77,7 @@ Recommended: JPG/WebP, ~1600 px wide for hero, ~1000 px for cards; compress befo
 | Dark Grey | `#333333` |
 | Light Grey | `#E6E6E6` |
 | Warm Sand | `#E3DACE` |
+
+## Deployment
+
+Pushes to `main` on GitHub auto-deploy to Vercel: https://cultiv8-subrat.vercel.app/
