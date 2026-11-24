@@ -2,7 +2,7 @@ import { WHY } from "../data/content.js";
 
 const WA_HREF =
   "https://wa.me/919766777246?text=" +
-  encodeURIComponent("Hi Cultiv8! I'd like to know about the exclusive festive offer at Sterling Towers, Baner.");
+  encodeURIComponent("Hi Cultiv8! I'd like to know about the exclusive offer at Sterling Towers, Baner.");
 
 const STATS = [
   { value: "500+", label: "Members" },

@@ -25,7 +25,7 @@ export default function FinalCta() {
           Ready to work from <span className="fcta2__accent">Cultiv8?</span>
         </h2>
         <p className="fcta2__sub">
-          Explore the festive privilege, check seat availability or book a tour of Sterling Towers, Baner.
+          Explore the exclusive privilege, check seat availability or book a tour of Sterling Towers, Baner.
         </p>
 
         <div className="fcta2__btns">

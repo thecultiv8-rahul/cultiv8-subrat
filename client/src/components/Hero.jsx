@@ -41,7 +41,7 @@ function useTyping(text, speed = 80, pause = 1500) {
 
 const WA_HREF =
   "https://wa.me/919766777246?text=" +
-  encodeURIComponent("Hi Cultiv8, I'd like to unlock the festive offer at Sterling Towers, Baner.");
+  encodeURIComponent("Hi Cultiv8, I'd like to unlock the exclusive offer at Sterling Towers, Baner.");
 
 export default function Hero() {
   const typed = useTyping(TYPED_TEXT, 80, 3500);
@@ -93,7 +93,7 @@ export default function Hero() {
             className="hero2__btn hero2__btn--outline"
           >
             <WhatsAppIcon size={18} />
-            Unlock the Festive Offer
+            Unlock the Exclusive Offer
           </a>
           <a href="#enquire" className="hero2__btn hero2__btn--solid">
             Enquire Now

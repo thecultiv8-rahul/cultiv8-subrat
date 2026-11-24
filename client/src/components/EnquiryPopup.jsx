@@ -70,7 +70,7 @@ export default function EnquiryPopup() {
           </div>
         ) : (
           <form className="epop__form" onSubmit={submit} noValidate>
-            <h3 className="epop__title">Grab the Festive Offer</h3>
+            <h3 className="epop__title">Grab the Exclusive Offer</h3>
             <p className="epop__sub">Starting from ₹6999* · Sterling Towers, Baner</p>
 
             <div className="epop__field">

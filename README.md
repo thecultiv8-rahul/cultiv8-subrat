@@ -1,6 +1,6 @@
-# Cultiv8 — Festive Privilege Landing Page
+# Cultiv8 — Exclusive Privilege Landing Page
 
-Landing page for **Cultiv8 Sterling Towers, Baner, Pune** (Option A — The Festive Privilege), built from the approved desktop/mobile design and the Cultiv8 brand guideline.
+Landing page for **Cultiv8 Sterling Towers, Baner, Pune** (Option A — The Exclusive Privilege), built from the approved desktop/mobile design and the Cultiv8 brand guideline.
 
 - **client/** — React 18 + Vite (all 11 sections, fully responsive)
 - **server/** — Express API for the enquiry form (no database)

@@ -41,7 +41,7 @@ module.exports = async function handler(req, res) {
   const lead = {
     id: Date.now().toString(36),
     ...data,
-    source: "festive-privilege-landing",
+    source: "exclusive-privilege-landing",
     createdAt: new Date().toISOString(),
   };
 

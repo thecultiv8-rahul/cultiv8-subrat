@@ -5,7 +5,7 @@ export const SITE = {
   phoneHref: "tel:+919766777246",
   whatsappHref:
     "https://wa.me/919766777246?text=" +
-    encodeURIComponent("Hi Cultiv8, I'd like to know more about the Festive Privilege offer at Sterling Towers, Baner."),
+    encodeURIComponent("Hi Cultiv8, I'd like to know more about the Exclusive Privilege offer at Sterling Towers, Baner."),
   // TODO: replace with the client's real email address.
   email: "hello@cultiv8.co.in",
   website: "https://cultiv8.co.in",
@@ -152,7 +152,7 @@ export const OTHER_CENTRES = "Ambrosia Galaxy, Baner · Pyramid Axis, Baner · P
 
 export const WHY = [
   { title: "A Baner address", text: "Office space on Pancard Club Road, within reach of Pune's western business corridor." },
-  { title: "Exclusive festive offer", text: "Special pricing opportunities for new members. Ask our team for details and eligibility.", highlight: true },
+  { title: "Exclusive offer", text: "Special pricing opportunities for new members. Ask our team for details and eligibility.", highlight: true },
   { title: "Room to scale", text: "From a single desk to a full managed office — grow without changing address." },
   { title: "Essentials handled", text: "Utilities, maintenance and admin support taken care of, so your team can focus." },
   { title: "Space to recharge & park", text: "Foosball, carrom and lounge seating for breaks, plus parking for your commute." },
@@ -198,8 +198,8 @@ export const FAQS = [
     a: "Dedicated desks, private cabins, managed offices, meeting and conference rooms, a director's suite and virtual office plans. Tell us your team size and we'll recommend the right fit.",
   },
   {
-    q: "What is the festive offer and who is eligible?",
-    a: "The Cultiv8 Festive Privilege offers special pricing opportunities for new members at Sterling Towers. Eligibility and terms depend on the workspace option and team size — request the details and our team will share them before you commit.",
+    q: "What is the exclusive offer and who is eligible?",
+    a: "The Cultiv8 Exclusive Privilege offers special pricing opportunities for new members at Sterling Towers. Eligibility and terms depend on the workspace option and team size — request the details and our team will share them before you commit.",
   },
   {
     q: "Which amenities are included?",

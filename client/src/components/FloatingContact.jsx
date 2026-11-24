@@ -34,7 +34,7 @@ export default function FloatingContact() {
           <span>WhatsApp</span>
         </a>
         <a href="#enquire" data-step="offer" className="mobile-bar__cta">
-          Unlock the festive offer
+          Unlock the exclusive offer
         </a>
       </div>
     </>

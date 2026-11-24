@@ -74,7 +74,7 @@ export default function EnquiryForm() {
         {/* LEFT */}
         <div className="enq2__left">
           <span className="enq2__pill">Get in touch</span>
-          <h2 className="enq2__title">Unlock the Cultiv8 Festive Privilege.</h2>
+          <h2 className="enq2__title">Unlock the Cultiv8 Exclusive Privilege.</h2>
           <p className="enq2__sub">Tell us what your team needs — we'll share availability, offer terms, or set up a tour of Sterling Towers.</p>
 
           <ol className="enq2__steps">

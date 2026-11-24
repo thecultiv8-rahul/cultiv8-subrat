@@ -47,7 +47,7 @@ export default function Header() {
               </a>
             ))}
             <a href="#enquire" className="btn btn--primary nav__mobile-cta" onClick={close}>
-              Unlock the festive offer
+              Unlock the exclusive offer
             </a>
           </nav>
 
@@ -56,7 +56,7 @@ export default function Header() {
               <Icon name="phone" size={16} /> Call
             </a>
             <a href="#enquire" className="btn btn--primary btn--sm">
-              Unlock the festive offer
+              Unlock the exclusive offer
             </a>
           </div>
 

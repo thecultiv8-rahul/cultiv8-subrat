@@ -2,7 +2,7 @@
   "name": "cultiv8-landing",
   "version": "1.0.0",
   "private": true,
-  "description": "Cultiv8 Sterling Towers — Festive Privilege landing page (React + Express, no database)",
+  "description": "Cultiv8 Sterling Towers — Exclusive Privilege landing page (React + Express, no database)",
   "scripts": {
     "install:all": "npm install && npm install --prefix server && npm install --prefix client",
     "dev": "concurrently -n server,client -c yellow,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
